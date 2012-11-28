@@ -1,0 +1,19 @@
+{
+  "name": "Russian Post Tracker",
+  "version": "1.0",
+  "manifest_version": 2,
+  "description": "Russian Post Tracker",
+  "content_scripts": [
+    {
+      "js": ["jquery.js", "myscript.js"],
+      "matches": [
+        "http://russianpost.ru/*",
+        "http://www.russianpost.ru/*"
+      ]
+    }
+  ],  "permissions": [
+    "http://russianpost.ru/",
+    "http://www.russianpost.ru/",
+    "storage"
+  ]
+}
