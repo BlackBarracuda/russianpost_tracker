@@ -1,11 +1,11 @@
 if( $('input#BarCode').attr('name') == 'BarCode' ) {
 
     function update(barcode, vals) {
-        chrome.storage.local.get(barcode, function (items) {
+        chrome.storage.sync.get(barcode, function (items) {
             for(key in vals) {
                 items[barcode][key] = vals[key];
             }
-            chrome.storage.local.set(items);
+            chrome.storage.sync.set(items);
         })
     }
 
@@ -70,7 +70,7 @@ if( $('input#BarCode').attr('name') == 'BarCode' ) {
     }
 
     // выводим сохраненные результаты
-    chrome.storage.local.get(null, function (items) {
+    chrome.storage.sync.get(null, function (items) {
         keys = Object.keys(items).sort(function(a, b) {
             var val_a = $(items[a].html).find('tr:last');
             var val_b = $(items[b].html).find('tr:last');
