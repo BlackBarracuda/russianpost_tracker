@@ -1,7 +1,9 @@
 if( $('input#BarCode').attr('name') == 'BarCode' ) {
 
     function update(barcode, vals) {
-        chrome.storage.sync.get(barcode, function (items) {
+        var dfl = {};
+        dfl[barcode] = {};
+        chrome.storage.sync.get(dfl, function (items) {
             for(key in vals) {
                 items[barcode][key] = vals[key];
             }
